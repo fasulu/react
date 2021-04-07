@@ -1,16 +1,18 @@
-import React from 'react';
-import reactDom from 'react-dom';
 
-class Steps extends reactDom() {
+import React from 'react';
+
+class Steps extends React.Component {
 
     render() {
 
         return (
             <div className="box col-sm3 col-6">
-
+                <span class="material-icons" style={{ fontSize: 100, color: "black" }}>
+                    directions_walk
+                </span>
             </div>
-        )
-    };
+        );
+    }
 }
 
 export default Steps;

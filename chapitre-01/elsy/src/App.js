@@ -1,6 +1,8 @@
 import React from "react";
+
+
 import './App.css';
-// import './components/Steps.jsx'
+import Steps from './components/Steps'
 
 const tempMin = -20;
 const tempMax = 40;
@@ -16,12 +18,11 @@ class App extends React.Component {
 
         <div className="row">
 
+          <Steps></Steps>
           <h1 className="text-primary">Hello !</h1>
           <p> Heart: {heartMin}</p>
           <p> Temperature: {tempMin}</p>
           <p> Steps: {stepsMin}</p>
-
-
         </div>
 
       </div>
