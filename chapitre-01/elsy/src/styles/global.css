@@ -1,0 +1,12 @@
+#box :nth-child(even) {
+    background-color: #cccccc;
+}
+
+#box :nth-child(impair) {
+    background-color: #aaaaaa;
+}
+
+#box {
+    height: 190px;
+    padding : 8px;
+}
