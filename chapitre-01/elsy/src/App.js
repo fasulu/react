@@ -1,8 +1,7 @@
 import React from "react";
-
-
 import './App.css';
-import Steps from './components/Steps'
+import './styles/global.css';
+import Box from "./components/Box"
 
 const tempMin = -20;
 const tempMax = 40;
@@ -13,13 +12,19 @@ const stepMax = 50000;
 
 class App extends React.Component {
   render() {
+
+    console.log(this.props)
     return (
       <div className="container-fluid">
 
         <div className="row">
 
-          <Steps></Steps>
-          <h1 className="text-primary">Hello !</h1>
+           
+          <Box icon="local_drink" color="#3A85FF" value={1.5} unit="L" > </Box>
+          <Box icon="directions_walk" color="black" value={3000} unit="steps" />
+          <Box icon="favorite" color="red" value={120} unit="bpm" />
+          <Box icon="wb_sunny" color="yellow" value={10} unit="°c" />
+
           <p> Heart: {heartMin}</p>
           <p> Temperature: {tempMin}</p>
           <p> Steps: {stepsMin}</p>
