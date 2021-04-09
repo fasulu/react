@@ -3,9 +3,13 @@ import React from 'react';
 
 class Team extends React.Component {
 
-    // constructor () {
-    //     super()
-    // }
+    constructor () {
+        super()
+
+        this.state = {
+            teamPoints : 1
+        }
+    }
 
     render() {
 
@@ -13,7 +17,8 @@ class Team extends React.Component {
 
             <div className="box col-sm-3 col-6">
 
-                <p> {this.props.name} {this.props.color}</p>
+                <p style = {{ backgroundColor: "gray", color: this.props.color}}> {this.props.name} {this.props.color} {this.props.teamPoints}</p>
+                
 
             </div>
         );
