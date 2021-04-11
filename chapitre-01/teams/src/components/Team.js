@@ -11,14 +11,18 @@ class Team extends React.Component {
         }
     }
 
+    handleClick1() {
+        this.teamPoints = 2
+    }
+
     render() {
 
         return (
 
             <div className="box col-sm-3 col-6">
 
-                <p style = {{ backgroundColor: "gray", color: this.props.color}}> {this.props.name} {this.props.color} {this.props.teamPoints}</p>
-                
+                <p style = {{ backgroundColor: "gray", color: this.props.color}}> {this.props.name} {this.props.color} {this.props.points}</p>
+                <button style={{width:"auto"}}>Add Point</button>
 
             </div>
         );
