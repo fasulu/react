@@ -1,26 +1,26 @@
 import React from 'react'
-import './App.css'
 
-import Counter from './component/Counter.js'
+import Counter from './component/Counter.js';
+import './styles/global.css';
 
 class App extends React.Component {
 
   constructor() {
     super()
 
-    this.state = {
+    this.state = {                                          // initialize counter with zero
       count: 0
     }
 
-    this.decrementCount = this.decrementCount.bind(this)
-    this.incrementCount = this.incrementCount.bind(this)
+    this.decrementCount = this.decrementCount.bind(this)    // bind current decrementCount function value with decrementCount
+    this.incrementCount = this.incrementCount.bind(this)    // bind current incrementCount function value with incrementCount
   }
 
-  decrementCount() {
-    const { count } = this.state
+  decrementCount() {                                        // create function to decrement current counter value with one
+    const { count } = this.state                            // move current counter value to decrementCount constant
 
-    this.setState({
-      count: count - 1
+    this.setState({                                         // using setState to change 
+      count: count - 1                                      // decrement counter current value by 1
     })
   }
 
@@ -48,8 +48,8 @@ class App extends React.Component {
     return (
       <div>
         <h1>Counter</h1>
-
-        <Counter count={this.state.count} removeFunction={this.decrementCount} addFunction={this.incrementCount} />
+        
+        <Counter count={this.state.count} decrementFunction={this.decrementCount} incrementFunction={this.incrementCount} />
 
       </div>
     )

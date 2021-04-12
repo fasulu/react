@@ -1,0 +1,17 @@
+#divClass h1 h2 button {
+    align-items: center;
+  }
+  
+  .redbg {
+    text-align: center;
+    font-size: 25px;
+    color: blanchedalmond;
+    background-color: red;
+  }
+  
+  .greenbg {
+    text-align: center;
+    font-size: 25px;
+    color: greenyellow;
+    background-color: green;
+  }
