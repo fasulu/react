@@ -11,6 +11,18 @@ const stepsMin = 0;
 const stepMax = 50000;
 
 class App extends React.Component {
+
+  constructor() {
+    super()
+    
+    this.state = {
+      water : 0,
+      heart : 120,
+      temperature : -120,
+      steps : 3000
+    }
+  }
+
   render() {
 
     console.log(this.props)
@@ -25,9 +37,9 @@ class App extends React.Component {
           <Box icon="favorite" color="red" value={120} unit="bpm" />
           <Box icon="wb_sunny" color="yellow" value={10} unit="°c" />
 
-          <p> Heart: {heartMin}</p>
+          {/* <p> Heart: {heartMin}</p>
           <p> Temperature: {tempMin}</p>
-          <p> Steps: {stepsMin}</p>
+          <p> Steps: {stepsMin}</p> */}
         </div>
 
       </div>

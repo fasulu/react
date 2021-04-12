@@ -11,3 +11,7 @@
     padding : 8px;
     text-align: center;
 }
+
+.input[type=range]::-moz-range-track {
+    background-color: green;
+  }
