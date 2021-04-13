@@ -3,54 +3,87 @@ import React from 'react';
 
 class App extends React.Component {
 
-    constructor(props) {
+    // constructor(props) {
 
-        super(props)
-        this.state = {
-            water: 0,
-            heart: 0,
-            temperature: 0,
-            steps: 0,
-        }
+    //     super(props)
+    //     this.state = {
+    //         water: 0,
+    //         heart: 0,
+    //         temperature: 0,
+    //         steps: 0,
+    //     }
 
-        this.changValue = this.changValue.bind(this)
-    }
+    //     this.changValue = this.changValue.bind(this)
+    // }
 
     
 
-    changValue(e) {
+    onHeartChange(e) {
 
-        console.log(e.target.icon)
+        this.setState({
 
-        if(e.target.type === "water") {
+            heart: e.target.value
 
-            this.setState({
-                water: e.target.values
-            })
 
-        }else if(e.target.type === "heart") {
+        })
 
-            this.setState({
-                heart: e.target.values
-            })
-
-        }else if(e.target.type === "temperature") {
-
-            this.setState({
-                temperature: e.target.values
-            })
-
-        }else if(e.target.type === "step") {
-
-            this.setState({
-                step: e.target.values
-            })
-
-        } 
     }
 
+        // console.log(e.target.icon)
+
+        // if(e.target.icon === "local_drink") {
+
+        //     this.setState({
+        //         water: e.target.value
+        //     })
+
+        // }else if(e.target.icon === "favorite") {
+
+        //     this.setState({
+        //         heart: e.target.value
+        //     })
+
+        // }else if(e.target.icon === "wb_sunny") {
+
+        //     this.setState({
+        //         temperature: e.target.value
+        //     })
+
+        // }else if(e.target.icon === "directions_walk") {
+
+        //     this.setState({
+        //         step: e.target.value
+        //     })
+
+        // } 
+    
+        
+
     render() {
-        console.log(this.props.icon); // check what infomation is coming from app.js
+
+        const {value, min, max, onChange, unit} = this.props
+
+        if(this.props.unit !== "L") {
+
+            return (
+
+                <div className="box col-sm-3 col-6">
+    
+                    <span className="material-icons" style={
+                        { fontSize: 100, color: this.props.color }}>
+                        {this.props.icon}
+                    </span>
+    
+                    <p>{this.props.values} {this.props.unit}</p>
+    
+                    <input type="range" onInput={onChange} min={} />
+    
+                </div>
+            );
+
+        }
+        
+        
         return (
 
             <div className="box col-sm-3 col-6">
@@ -62,7 +95,7 @@ class App extends React.Component {
 
                 <p>{this.props.values} {this.props.unit}</p>
 
-                <input className="material-icons" type="range" onChange={this.changValue} step="5" icon={this.props.icon} values={this.state.values} />
+                <input className="material-icons" type="range" onChange={this.onHeartChange} step="5" icon={this.props.icon} values={this.state.values} />
 
             </div>
         );
