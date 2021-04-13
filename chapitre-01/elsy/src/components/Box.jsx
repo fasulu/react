@@ -74,9 +74,9 @@ class App extends React.Component {
                         {this.props.icon}
                     </span>
     
-                    <p>{this.props.values} {this.props.unit}</p>
+                    <p>{value} {unit}</p>
     
-                    <input type="range" onInput={onChange} min={} />
+                    <input type="range" onInput={onChange} min={min} max={max} value={value} />
     
                 </div>
             );
@@ -94,8 +94,6 @@ class App extends React.Component {
                 </span>
 
                 <p>{this.props.values} {this.props.unit}</p>
-
-                <input className="material-icons" type="range" onChange={this.onHeartChange} step="5" icon={this.props.icon} values={this.state.values} />
 
             </div>
         );

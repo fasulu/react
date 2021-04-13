@@ -8,7 +8,7 @@ const tempMax = 40;
 const heartMin = 80;
 const heartMax = 180;
 const stepsMin = 0;
-const stepMax = 50000;
+const stepsMax = 50000;
 
 class App extends React.Component {
 
@@ -39,7 +39,7 @@ class App extends React.Component {
   
     this.setState({
   
-      heart: e.target.value
+      steps: e.target.value
   
   
     })
@@ -48,7 +48,7 @@ class App extends React.Component {
   
     this.setState({
   
-      heart: e.target.value
+      temperature: e.target.value
   
   
     })
@@ -63,10 +63,10 @@ render() {
       <div className="row">
 
 
-        <Box icon="local_drink" color="#3A85FF" values={this.state.water} unit="L" > </Box>
-        <Box icon="directions_walk" color="black" values={this.state.steps} unit="steps" />
-        <Box icon="favorite" color="red" values={this.state.heart} unit="bpm" />
-        <Box icon="wb_sunny" color="yellow" values={this.state.temperature} unit="°c" />
+        <Box icon="local_drink" color="#3A85FF" value={this.state.water} unit="L" > </Box>
+        <Box icon="directions_walk" color="black" value={this.state.steps} unit="steps" min={stepsMin} max={stepsMax} onChange={this.onStepsChange}/>
+        <Box icon="favorite" color="red" value={this.state.heart} unit="bpm"  min={heartMin} max={heartMax} onChange={this.onHeartChange} />
+        <Box icon="wb_sunny" color="yellow" value={this.state.temperature} unit="°c"  min={tempMin} max={tempMax} onChange={this.onTempChange} />
 
         {/* <p> Heart: {heartMin}</p>
           <p> Temperature: {tempMin}</p>
