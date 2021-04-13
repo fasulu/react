@@ -32,10 +32,10 @@ class App extends React.Component {
         <div className="row">
 
            
-          <Box icon="local_drink" color="#3A85FF" value={1.5} unit="L" > </Box>
-          <Box icon="directions_walk" color="black" value={3000} unit="steps" />
-          <Box icon="favorite" color="red" value={120} unit="bpm" />
-          <Box icon="wb_sunny" color="yellow" value={10} unit="°c" />
+          <Box icon="local_drink" color="#3A85FF" values={1.5} unit="L" > </Box>
+          <Box icon="directions_walk" color="black" values={3000} unit="steps" />
+          <Box icon="favorite" color="red" values={120} unit="bpm" />
+          <Box icon="wb_sunny" color="yellow" values={10} unit="°c" />
 
           {/* <p> Heart: {heartMin}</p>
           <p> Temperature: {tempMin}</p>

@@ -16,53 +16,53 @@ class App extends React.Component {
         this.changValue = this.changValue.bind(this)
     }
 
+    
 
-    changValue(event) {
-        console.log("onchange value id", event.target)
-        console.log("onchange value value", event.target.value)
+    changValue(e) {
 
+        console.log(e.target.icon)
 
-        if(event.target.type === "water") {
+        if(e.target.type === "water") {
 
             this.setState({
-                water: event.target.value
+                water: e.target.values
             })
 
-        }else if(event.target.type === "heart") {
+        }else if(e.target.type === "heart") {
 
             this.setState({
-                heart: event.target.value
+                heart: e.target.values
             })
 
-        }else if(event.target.type === "temperature") {
+        }else if(e.target.type === "temperature") {
 
             this.setState({
-                temperature: event.target.value
+                temperature: e.target.values
             })
 
-        }else if(event.target.type === "step") {
+        }else if(e.target.type === "step") {
 
             this.setState({
-                step: event.target.value
+                step: e.target.values
             })
 
         } 
     }
 
     render() {
-        console.log(this.props); // check what infomation is coming from app.js
+        console.log(this.props.icon); // check what infomation is coming from app.js
         return (
 
             <div className="box col-sm-3 col-6">
 
-                <span class="material-icons" style={
+                <span className="material-icons" style={
                     { fontSize: 100, color: this.props.color }}>
                     {this.props.icon}
                 </span>
 
-                <p>{this.props.value} {this.props.unit}</p>
+                <p>{this.props.values} {this.props.unit}</p>
 
-                <input className="material-icons" type="range" onChange={this.changValue} step="5" icon={this.state.icon} value={this.state.value} />
+                <input className="material-icons" type="range" onChange={this.changValue} step="5" icon={this.props.icon} values={this.state.values} />
 
             </div>
         );
