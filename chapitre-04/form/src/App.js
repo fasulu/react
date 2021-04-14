@@ -56,24 +56,26 @@ class App extends Component {
       <div className="container">
         <div className="card-header bg-dark text-white">
           <div className="container">
+
             <div className="row col-sm-6">
-              <div>
+
+              <div className="input-group input-group-lg">
                 <label> Email address </label>
-                <input id="email" for="validationTextarea" onChange={this.handleEmail} type="email" placeholder="email" ></input>
+                <input id="email" class="" onChange={this.handleEmail} type="email" placeholder="email" required ></input>
               </div>
-              <div>
+
+              <div className="input-group input-group-lg">
                 <label> Password </label>
-                <input id="password" type="password" placeholder="password"></input>
-
+                <input id="password" class="" type="password" placeholder="password" required></input>
               </div>
-
             </div>
-            <div>
+
+            <div className="input-group input-group-lg">
               <input className="form-check-input " id="checkbox" type="checkbox" onClick={this.checkboxData} ></input>
               <label >Remember Me</label>
             </div>
 
-            <div>
+            <div className="form-check mb-3">
               <button style={{background:"lightGrey"}} onClick={this.submitData} email={this.state.email} password={this.state.password}>Submit</button>
             </div>
           </div>
