@@ -11,7 +11,7 @@ class App extends Component {
     this.state = {
       email: "",
       password: "",
-      checkbox: ""
+      checkbox: "false"
     }
 
     this.handleEmail = this.handleEmail.bind(this)
@@ -28,23 +28,18 @@ class App extends Component {
     this.setState({
       email: event.target.value
     })
-
   }
 
   checkboxData(event) {
 
-    let checkbox = event.target.value
-    console.log("checkbox",checkbox)
+    let temp = event.target.checked
+    console.log(temp)
+    
+    this.setState({
+      checkbox: event.target.checked
 
-    if(event.target.value === "on") {
-      this.setState({
-      checkbox: "on"
     })
-    }else {
-      this.setState({
-        checkbox: "off"
-      })
-    } 
+    console.log("checkbox state value", this.state.checkbox)
   }
 
   submitData(event) {
@@ -52,14 +47,6 @@ class App extends Component {
     let email1 = this.state.email
     console.log("email from submitdata", email1)
 
-    if(this.state.checkbox === "on") {
-
-      console.log("true", this.state.checkbox)
-    } else if(this.state.checkbox === "off") {
-
-      console.log("false", this.state.checkbox)
-    }
-    
   }
 
   render() {
@@ -72,8 +59,7 @@ class App extends Component {
             <div className="row col-sm-6">
               <div>
                 <label> Email address </label>
-                <input id="email" onChange={this.handleEmail} type="email" placeholder="email" ></input>
-
+                <input id="email" for="validationTextarea" onChange={this.handleEmail} type="email" placeholder="email" ></input>
               </div>
               <div>
                 <label> Password </label>
@@ -83,8 +69,8 @@ class App extends Component {
 
             </div>
             <div>
-              <input id="checkbox" type="checkbox" onClick={this.checkboxData} ></input>
-              <label>Remember Me</label>
+              <input className="form-check-input " id="checkbox" type="checkbox" onClick={this.checkboxData} ></input>
+              <label >Remember Me</label>
             </div>
 
             <div>
@@ -93,6 +79,7 @@ class App extends Component {
           </div>
         </div>
         <p>email: {this.state.email}</p>
+        <p>checkbox: {this.state.checkbox}</p>
       </div>
     );
     
