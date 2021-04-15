@@ -23,10 +23,21 @@ class App extends Component {
 
     let email = event.target.value
     console.log(event.target.value)
-    console.log("email from handleEmail",email)
+    console.log("email from handleEmail", email)
 
     this.setState({
       email: event.target.value
+    })
+  }
+
+  handlePassword(event) {
+
+    let pwd = event.target.value
+
+    console.log("password text", pwd)
+
+    this.setState({
+      password: event.target.value
     })
   }
 
@@ -34,10 +45,9 @@ class App extends Component {
 
     let temp = event.target.checked
     console.log(temp)
-    
+
     this.setState({
       checkbox: event.target.checked
-
     })
     console.log("checkbox state value", this.state.checkbox)
   }
@@ -53,38 +63,43 @@ class App extends Component {
 
     return (
 
-      <div className="container">
-        <div className="card-header bg-dark text-white">
-          <div className="container">
+      <div className="container-sm bg-light">
 
-            <div className="row col-sm-6">
+        <div className="row">
 
-              <div className="input-group input-group-lg">
-                <label> Email address </label>
-                <input id="email" class="" onChange={this.handleEmail} type="email" placeholder="email" required ></input>
-              </div>
-
-              <div className="input-group input-group-lg">
-                <label> Password </label>
-                <input id="password" class="" type="password" placeholder="password" required></input>
-              </div>
-            </div>
-
-            <div className="input-group input-group-lg">
-              <input className="form-check-input " id="checkbox" type="checkbox" onClick={this.checkboxData} ></input>
-              <label >Remember Me</label>
-            </div>
-
-            <div className="form-check mb-3">
-              <button style={{background:"lightGrey"}} onClick={this.submitData} email={this.state.email} password={this.state.password}>Submit</button>
+          <div>
+            <label for="inputText" class="form-label">Email </label> <br></br>
+            <input type="email" id="inputEmail" class="emailInput" onChange={this.handleEmail}></input>
+          </div>
+          </div>
+          <div className="row">
+          <div className="col">
+            <div>
+              <label for="inputPassword5" class="form-label">Password</label>
+              <input id="inputPassword" class="pwdInput " onChange={this.handlePassword}></input>  {/* type="password"  */}
             </div>
           </div>
         </div>
+
+        <div className="row p-2 ">
+          <div className="">
+            <input className="mx-1 " id="checkbox" type="checkbox" onClick={this.checkboxData} ></input>
+            <label className=""  >Remember Me</label>
+          </div>
+        </div>
+        <div className="row p-2 ">
+          <div className="">
+            <button style={{ background: "lightGrey" }} onClick={this.submitData} email={this.state.email} password={this.state.password}>Submit</button>
+          </div>
+        </div>
+
         <p>email: {this.state.email}</p>
         <p>checkbox: {this.state.checkbox}</p>
+        <p>password: {this.state.password}</p>
+
       </div>
     );
-    
+
   }
 }
 
