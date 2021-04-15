@@ -69,10 +69,10 @@ class App extends Component {
 
     if(emailRegEx.test(email)) {
 
-      console.log("this is valid or not", true,  emailRegEx.test(email));
+      console.log("valid", true,  emailRegEx.test(email));
     
     } else {
-      console.log(false)
+      console.log("invalid email", false)
     }
     
 
@@ -110,7 +110,7 @@ class App extends Component {
 
           <div className="row p-2 ">
             <div className="">
-              <button style={{ background: "lightGrey" }} onClick={this.submitData} email={this.state.email} password={this.state.password}>Submit</button>
+              <button style={{ background: "lightGrey" }} onClick={this.submitData} >Submit</button>
             </div>
           </div>
         </div>
