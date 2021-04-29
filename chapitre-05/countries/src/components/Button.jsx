@@ -6,7 +6,7 @@ class Button extends Component {
         console.log(this.props)
 
         return (
-            <button className="this.props.buttonName "
+            <button className={this.props.buttonStyle}
             onClick={() => this.props.onClick()}  > 
                 {this.props.children} {this.props.name}
             </button>

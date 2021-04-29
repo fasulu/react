@@ -1,6 +1,9 @@
 import React from 'react';
 import './App.css';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+// import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+
+
 import Button from './components/Button';
 import Card from './components/Card';
 
@@ -15,7 +18,8 @@ class App extends React.Component {
       capital: "",
       flag: "",
       population: "",
-      region: ""
+      region: "",
+      allFlag: []
     }
     this.findCountryFlag = this.findCountryFlag.bind(this)
   }
@@ -44,9 +48,11 @@ class App extends React.Component {
 
   fetchCountry(country) {
 
-    console.log("fetch country", country)
     const url = 'https://restcountries.eu/rest/v2/name/' + country;
-    console.log("url is", url)
+
+    // console.log("url is", url)
+
+    // console.log("fetch country", country)
 
     fetch(url)
       .then(response => response.json())
@@ -64,8 +70,8 @@ class App extends React.Component {
       }
       )
       .catch(err => console.error("there is an error", err));
-  }
 
+  }
 
   onClickFrance = () => {
 
@@ -88,6 +94,11 @@ class App extends React.Component {
 
   }
 
+  onClickAllFlags() {
+
+    this.fetchCountry("all")
+  }
+
   onClickShowCard() {
     // console.log(this.state.name)
     this.fetchCountry(this.state.name)
@@ -98,58 +109,60 @@ class App extends React.Component {
     this.setState({
       name: event.target.value
     })
-
   }
 
   render() {
 
     return (
       <div>
-        <div>
-        <h6>{this.state.name}</h6>
-        <h6>{this.state.capital}</h6>
-        <h6>{this.state.flag}</h6>
-        <h6>{this.state.population}</h6>
-        <h6>{this.state.region}</h6>
+        <div className="card bg-dark text-center text-white">
+          <h1>Country Selector</h1>
         </div>
-
-
-        <div className="container-fluid">
+        <div className="container-fluid border border-dark shadow-lg p-3 mb-5 bg-white rounded ">
           <div className="row">
-            <div className="col-lg-md">
-              <Button className="btn btn-primary"
+            <div className="col-12 nav justify-content-center">
+              <Button buttonStyle="btn btn-primary m-2"
                 onClick={() => this.onClickFrance()} name="France" />
-              <Button className="btn btn-primary"
+              <Button buttonStyle="btn btn-primary m-2"
                 onClick={() => this.onClickBrazil()} name="Brazil" />
-              <Button className="btn btn-primary"
+              <Button buttonStyle="btn btn-primary m-2"
                 onClick={() => this.onClickCroatia()} name="Croatia" />
+              {/* <Button buttonStyle="btn btn-primary m-2"
+                onClick={() => this.onClickAllFlags()} name="All" /> */}
             </div>
           </div>
-          <div className="row">
-            <div className="col-lg-md">
 
-              <input className="" 
-              onChange={this.findCountryFlag} 
-              type="text" 
-              placeholder="type country name" />
-              <Card className="btn btn-outline-success" 
-              type="button" 
-              onClick={() => this.onClickShowCard()} 
-              name="Show"/>
+          <div className="row my-3">
+            <div className="col-12 nav justify-content-center">
+
+              <input className=""
+                onChange={this.findCountryFlag}
+                type="text"
+                placeholder="type country name" />
+              <Card className="btn btn-outline-success m-2"
+                type="button"
+                onClick={() => this.onClickShowCard()}
+                name="Show" />
             </div>
-            <div className="row">
-            <div className="col-lg-md my-5 align-left">
-              <img src={this.state.flag} style={{ width: 150, height: "auto" }} />
-            </div>
-
-            </div>
-              
-
-
-
-
-
           </div>
+
+          <div className="row my-3">
+            <div className="col-12 nav justify-content-center">
+              <img src={this.state.flag} style={{ width: 150, height: "auto" }} alt="Flag" />
+            </div>
+          </div>
+
+          <div className="row justify-content-center">
+            <div className="col-3">
+              <h6>Name: {this.state.name}</h6>
+              <h6>Capital: {this.state.capital}</h6>
+              {/* <h6>{this.state.flag}</h6> */}
+              <h6>Population: {this.state.population}</h6>
+              <h6>Region: {this.state.region}</h6>
+
+            </div>
+          </div>
+
         </div>
 
       </div>
