@@ -27,7 +27,7 @@ class App extends React.Component {
 
     //  https://restcountries.eu/rest/v2/name/france
     // fetch('https://restcountries.eu/rest/v2/name/france')
-    fetch('https://localhost:8000/countries')
+    fetch('https://localhost:3000/countries')
     .then(response => response.json())
       .then(countryArray => {
 
@@ -39,7 +39,7 @@ class App extends React.Component {
           region: countryArray[0].region
         })
 
-        // console.log(this.state.name)
+        console.log(this.state.name)
       }
       )
       .catch(err => console.error("there is an error", err));
@@ -48,9 +48,9 @@ class App extends React.Component {
   fetchCountry(country) {
 
     // const url = 'https://restcountries.eu/rest/v2/name/' + country;
-    const url = 'https://localhost:8000/countries/name/' + country;
+    const url = 'https://localhost:3000/countries/' + country;
 
-    // console.log("url is", url)
+    console.log("url is", url)
 
     // console.log("fetch country", country)
 
@@ -75,22 +75,22 @@ class App extends React.Component {
 
   onClickFrance = () => {
 
-    // console.log("im in france")
+    console.log("im in france")
     this.fetchCountry("france")
 
   }
 
-  onClickBrazil = () => {
+  onClickAfghanistan = () => {
 
-    // console.log("im in brazil")
-    this.fetchCountry("brazil")
+    console.log("im in Afghanistan")
+    this.fetchCountry("Afghanistan")
 
   }
 
-  onClickCroatia = () => {
+  onClickGermany = () => {
 
-    // console.log("im in croatisa")
-    this.fetchCountry("croatia")
+    console.log("im in Germany")
+    this.fetchCountry("Germany")
 
   }
 
@@ -100,12 +100,12 @@ class App extends React.Component {
   }
 
   onClickShowCard() {
-    // console.log(this.state.name)
+    console.log(this.state.name)
     this.fetchCountry(this.state.name)
   }
 
   findCountryFlag(event) {
-    // console.log(event.target.value)
+    console.log(event.target.value)
     this.setState({
       name: event.target.value
     })
@@ -124,11 +124,9 @@ class App extends React.Component {
               <Button buttonStyle="btn btn-primary m-2"
                 onClick={() => this.onClickFrance()} name="France" />
               <Button buttonStyle="btn btn-primary m-2"
-                onClick={() => this.onClickBrazil()} name="Brazil" />
+                onClick={() => this.onClickAfghanistan()} name="Afghanistan" />
               <Button buttonStyle="btn btn-primary m-2"
-                onClick={() => this.onClickCroatia()} name="Croatia" />
-              {/* <Button buttonStyle="btn btn-primary m-2"
-                onClick={() => this.onClickAllFlags()} name="All" /> */}
+                onClick={() => this.onClickGermany()} name="Germany" />
             </div>
           </div>
 
