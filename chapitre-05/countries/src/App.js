@@ -1,8 +1,6 @@
 import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
-
 
 import Button from './components/Button';
 import Card from './components/Card';
@@ -28,8 +26,9 @@ class App extends React.Component {
   componentDidMount() {
 
     //  https://restcountries.eu/rest/v2/name/france
-    fetch('https://restcountries.eu/rest/v2/name/france')
-      .then(response => response.json())
+    // fetch('https://restcountries.eu/rest/v2/name/france')
+    fetch('https://localhost:8000/countries')
+    .then(response => response.json())
       .then(countryArray => {
 
         this.setState({
@@ -48,7 +47,8 @@ class App extends React.Component {
 
   fetchCountry(country) {
 
-    const url = 'https://restcountries.eu/rest/v2/name/' + country;
+    // const url = 'https://restcountries.eu/rest/v2/name/' + country;
+    const url = 'https://localhost:8000/countries/name/' + country;
 
     // console.log("url is", url)
 

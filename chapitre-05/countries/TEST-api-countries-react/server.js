@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
+// const { countries } = require('./dataCountries.js');
 const { countries } = require('./dataCountries.js');
 
 app.use(cors());
