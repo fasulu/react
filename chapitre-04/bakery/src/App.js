@@ -7,9 +7,8 @@ import Button from './components/Button.jsx';
 import List from './components/List.jsx'
 import Pay from './components/Pay.jsx'
 import './styles/global.css';
-import Card from './components/Card.jsx'
+// import Card from './components/Card.jsx'
 
-const image = require('../src/water.png')
 // const image = '../src/water.png'
 
 class App extends Component {
@@ -20,10 +19,9 @@ class App extends Component {
     this.state = {
       activeTab: "add",
       items: [],
-      image: ""
     }
 
-    this.onClickShowImage = this.onClickShowImage.bind(this);
+    // this.onClickShowImage = this.onClickShowImage.bind(this);
   }
 
   onClickAdd = () => {
@@ -36,14 +34,14 @@ class App extends Component {
     this.setState({ activeTab: "Pay" })
   }
 
-  onClickShowImage() {
+  // onClickShowImage() {
 
-    console.log("im in show image")
+  //   console.log("im in show image")
 
-    this.setState({
-      image: image
-    })
-  }
+  //   this.setState({
+  //     image: image
+  //   })
+  // }
 
 
   renderOnglet() {
@@ -103,10 +101,6 @@ class App extends Component {
                 isSelected={this.state.activeTab === "Pay" ? "btn btn-primary" : "btn btn-light"}
               >Pay</Button>
 
-              <Card
-                imageData= {this.state.image}
-                showImage= {this.onClickShowImage} 
-              >Show Image</Card>
 
             </div>
           </div>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Card from './Card.jsx'
 
 class Add extends Component {
     constructor() {
@@ -10,6 +11,9 @@ class Add extends Component {
             max: 10
         }
     }
+
+
+
     updateProductName = (e) => {
         this.setState({ productName: e.target.value })
     }
@@ -41,6 +45,11 @@ class Add extends Component {
                         min={this.state.min}
                         max={this.state.max}
                         onChange={this.updatePrice} />
+                </div>
+
+                <div>
+                    <Card></Card>
+
                 </div>
 
             </div>
