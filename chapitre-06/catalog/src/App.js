@@ -1,25 +1,55 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { BrowserRouter, Link, Switch, Route } from 'react-router-dom'
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import PageNotFound from "./Components/PageNotFound.jsx"
+import './Components/Movies.jsx'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import './App.css'
+
+class App extends React.Component {
+
+	constructor() {
+		super()
+
+		this.state = {
+
+		}
+	}
+
+	render() {
+
+		return (
+
+			<BrowserRouter>
+
+				<div className="">
+
+					{/* <h1>movie list</h1> */}
+					<nav>
+
+						<ul>
+
+							<li><Link to="/">Movies</Link></li>
+							<li><Link to="/"></Link></li>
+							<li><Link to="/"></Link></li>
+
+						</ul>
+
+					</nav>
+
+<Switch>
+	<Route exact path="/" render={() => } ></Route>
+	<Route exact path="*" component={PageNotFound}></Route>
+
+
+</Switch>
+
+				</div>
+
+			</BrowserRouter>
+		)
+
+	}
 }
 
 export default App;
