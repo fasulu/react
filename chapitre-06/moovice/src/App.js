@@ -1,49 +1,40 @@
 import React from 'react'
-import { BrowserRouter, Link } from 'react-router-dom'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
+import Home from './view/Home'
 import MovieInfo from './view/MovieInfo'
 import PageNotFound from './view/PageNotFound'
 
 
 class App extends React.Component {
 
-  state = {
-    movies: []
-  }
-
-  componentDidMount() {
-
-    console.log("Iam in component did mount")
+  constructor() {
+    super()
     
-    const movies = fetch("https://api.themoviedb.org/3/movie/550?api_key=e441f8a3a151d588a4932d2c5d310769")
-    .then(response=> response.json())
-    .then(result => {
-      console.log("im in fetch response", result.production_companies[0].id)
-      console.log("im in fetch response", result.production_companies[0].name)
-      // const movieList = result.map((elem) => {
-      //   // return elem.production_companies
-      //   return <li key={elem.production_companies[0].id}> <Link to={`/${elem.production_companies[0].name}`}></Link></li>
-      // })
-    })
+    this.state = {
 
-    .catch(err => console.error("fetch error", err))
+      movieLink: "https://api.themoviedb.org/3/movie/550?api_key=e441f8a3a151d588a4932d2c5d310769",
+      userSelection: ["This Week", "This Week Battle", "Popular", "Popular Battle", "My List"],
+      movies: []
+    }
+
   }
-
 
   render() {
 
 
     return (
       <BrowserRouter>
-{/* 
-<Switch>
 
-<Route exact path="/" render={() => <Home movies ={allMovies}/>}/>
+        <Switch>
 
-          <Route exact path="/:movieId" render={(props) => <MovieInfo {...props} movies={allMovies} />} />
+          <Route exact path="/" render={() => <Home userList={this.state.userSelection} />} />
 
-<Route path="*" component={PageNotFound}></Route>
-      </Switch> */}
+          <Route exact path="/:userSelect" render={(props) => <MovieInfo {...props} userSelect={this.state.movieLink} />} />
+
+          <Route path="*" component={PageNotFound}></Route>
+          
+        </Switch>
 
       </BrowserRouter>
     )
