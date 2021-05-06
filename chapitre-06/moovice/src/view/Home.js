@@ -28,21 +28,6 @@ class Home extends Component {
         return (
             <div>
 
-                <nav>
-                    <ul>
-                        {
-                            this.props.userList.map((elem, index) => {
-                                console.log(elem)
-                                return <li key={index} style={{ listStyleType: "none" }}> <Link to={`/${elem}`}> {elem} </Link></li>
-                            })
-                        }
-                    </ul>
-                </nav>
-
-                <BrowserRouter>
-
-                </BrowserRouter>
-
             </div>
 
         );
