@@ -1,8 +1,6 @@
 import { Component } from 'react'
 import Card from './Card'
 
-
-
 class Favorites extends Component {
     constructor(props) {
         super(props)
@@ -28,20 +26,20 @@ class Favorites extends Component {
 
         // }
 
-        for(let i=0;i<idsFavorites.length;i++) {
+        for (let i = 0; i < idsFavorites.length; i++) {
 
-            const url = "http://api.themoviedb.org/3/movie/"+`${idsFavorites[i]}`+"?api_key=e441f8a3a151d588a4932d2c5d310769"
+            const url = "http://api.themoviedb.org/3/movie/" + `${idsFavorites[i]}` + "?api_key=e441f8a3a151d588a4932d2c5d310769"
             console.log(i, url)
-    
+
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
                     console.log("data in popular component did mount", data);
-    
+
                     this.setState({
                         movies: [...this.state.movies, data]
                     })
-                    
+
                 })
         }
 
@@ -64,6 +62,7 @@ class Favorites extends Component {
                         return <Card {...elem} />
                     })
                 }
+
             </div>
 
         )
