@@ -16,7 +16,7 @@ class Weekly extends Component {
         const lastWeek = moment().subtract(6, 'days').format('DD/MM/YYYY'); console.log("one week back",lastWeek)
         const toDay = moment().format('DD/MM/YYYY'); console.log("today",toDay)
 
-        const url = `http://api.themoviedb.org/3/discover/movie?primary_release_date.gte=${lastWeek}&primary_release_date.lte=${toDay}&api_key=e441f8a3a151d588a4932d2c5d310769`
+        const url = `http://api.themoviedb.org/3/discover/movie?primary_release_date.gte=${lastWeek}&primary_release_date.lte=$${toDay}&api_key=e441f8a3a151d588a4932d2c5d310769`
 
         console.log(url);
 
@@ -32,9 +32,10 @@ class Weekly extends Component {
     }
 
     render() {
+        console.log(this.state.movies.length)
         return (
             <div>
-                <h1>Popular</h1>
+                <h1>Weekly</h1>
 
                 {
                     this.state.movies.map(elem => {
