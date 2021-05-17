@@ -26,16 +26,20 @@ function Login() {
         if (userDetails.username.length <= 5 || userDetails.username.length >= 21) {
             console.log("username must be min 6 and max 20 characters");
             localStorage.setItem("loginStatus", false)
+            localStorage.setItem("loginUser", "")
             return;
         }
         if (userDetails.pwd.length <= 5) {
             console.log("password must not be less than 6 characters");
             localStorage.setItem("loginStatus", false)
+            localStorage.setItem("loginUser", "")
             return
         }
         if (userDetails.username === userDetails.pwd) {
             console.log("login Success")
             localStorage.setItem("loginStatus", true)
+            localStorage.setItem("loginUser", username)
+
             history.push("/home")
         } else {
             console.log("Username or Password wrong")

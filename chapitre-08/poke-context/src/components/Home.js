@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Router, Route } from 'react-router';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Login from './Login';
 
 function Home() {
@@ -33,7 +33,6 @@ function Home() {
                 console.log(data.height)
                 console.log(data.weight)
             })
-
     })
 
     const handleOnClick = (e) => {
@@ -51,23 +50,23 @@ function Home() {
 
         console.log("login status at homepage/renderloginstatus", localStorage.getItem("loginStatus"))
         // setLogin(localStorage.getItem("loginStatus"))
-        if (localStorage.getItem("loginStatus")) {
+        if (localStorage.getItem("loginStatus") === "true") {
             return (
 
-                <div>
+                <div className="row my-2">
                     <form onSubmit={handleOnClick}>
-                        <button >Get A Pokemon</button>
-                        <div>
-                            <div>
+                        <button className="btn btn-primary" >Get A Pokemon</button>
+                        <div className="row ">
+                            <div className=" my-2">
                                 <label>Name: {name}</label>
                             </div>
-                            <div>
+                            <div className=" my-2">
                                 <label>Height: {height}</label>
                             </div>
-                            <div>
+                            <div className=" my-2">
                                 <label>Weight: {weight}</label>
                             </div>
-                            <div>
+                            <div className="my-2">
                                 <label>Type: {type}</label>
                             </div>
                         </div>
@@ -77,6 +76,16 @@ function Home() {
         } else {
             return (
                 <div>
+                    <div>
+                        <h2 style={{
+                        color: 'orange',
+                        border: 'white',
+                        borderRadius: '2px',
+                        textDecoration: 'none',
+                        fontWeight:'bold',
+                        marginTop: '10px'
+                    }}>You must login to use this service</h2>
+                    </div>
                     <Router>
                         <Route exact path="/login">
                             <Login />
@@ -97,90 +106,3 @@ function Home() {
 }
 
 export default Home
-
-
-
-//*** */
-// fetch(url)
-//     .then(res => {
-    //         if (!res.ok) {
-        //             throw Error('Could not fetch data for that resource');
-        //         }
-        //         return res.json();
-        //     })
-        //     .then(data => {
-            //         setName(data.name)
-            //         setType(data.types[0].type.name)
-            //         setHeight(data.height)
-            //         setWeight(data.weight)
-            //         console.log(data.name)
-            //         console.log(data.types[0].type.name)
-            //         console.log(data.height)
-            //         console.log(data.weight)
-            //     })
-            //*** */
-
-            //*** */
-            // const firstPokemon = "https://pokeapi.co/api/v2/pokemon/1"
-
-            // useEffect(() => {
-
-                //     const randomNumber = Math.floor(Math.random() * 100) + 1
-
-                //     console.log(randomNumber)
-                //     setUrl(`https://pokeapi.co/api/v2/pokemon/${randomNumber}`)
-
-                //     console.log(url)
-
-                //     fetch(url)
-                //         .then(res => {
-                    //             if (!res.ok) {
-                        //                 throw Error('Could not fetch data for that resource');
-                        //             }
-                        //             return res.json();
-                        //         })
-                        //         .then(data => {
-                            //             setName(data.name)
-                            //             setType(data.types[0].type.name)
-                //             setHeight(data.height)
-                //             setWeight(data.weight)
-                //             console.log(data.name)
-                //             console.log(data.types[0].type.name)
-                //             console.log(data.height)
-                //             console.log(data.weight)
-                //         })
-                // }, [url])
-                //*** */
-
-
-                // renderLoginStatus() {
-
-                //     setLogin(localStorage.getItem("loginStatus"))
-                //     if (login === true) {
-
-                //             <div>
-                //                 <form onSubmit={handleOnClick}>
-                //                     <button >Get A Pokemon</button>
-                //                     <div>
-                //                         <div>
-                //                             <label>Name: {name}</label>
-                //                         </div>
-                //                         <div>
-                //                             <label>Height: {height}</label>
-                //                         </div>
-                //                         <div>
-                //                             <label>Weight: {weight}</label>
-                //                         </div>
-                //                         <div>
-                //                             <label>Type: {type}</label>
-                //                         </div>
-                //                     </div>
-                //                 </form>
-                //             </div>
-
-                //     } else {
-                //             <div>
-                //                 <h2> You must login</h2>
-                //             </div>
-                //     }
-                // }

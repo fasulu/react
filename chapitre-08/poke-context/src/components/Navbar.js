@@ -5,42 +5,56 @@ function Navbar() {
 
     const history = useHistory();
     const [login, setLogin] = useState('false');
+    const loginUser = localStorage.getItem("loginUser")
+
 
     const handleOnClick = () => {
 
         setLogin(localStorage.getItem("loginStatus"))
         if (login === true) {
             history.push('/home')
-        }else{
+        } else {
             console.log("you must sign in")
             history.push('/login')
         }
     }
 
     return (
-        <nav className="navbar card bg-light">
-            <h2>Poke-dex</h2>
+        <nav className="navbar card bg-dark">
+            <h2 style={{
+                color: 'white',
+                borderRadius: '2px'
+            }}>Poke-dex</h2>
+            {/* <p style={{
+                color: 'white',
+                borderRadius: '2px'
+            }}>
+                User Name: {loginUser}
+            </p> */}
 
             <div className="links row">
-                <div className="col mx-5">
-                <Link to='/home'
-                    style={{
-                        color: 'white',
-                        backgroundColor: 'gray',
-                        borderRadius: '2px'
-                    }}
-                    onClick={handleOnClick}
+                <div className="col">
+                    <Link to='/home'
+                        style={{
+                            color: 'greenyellow',
+                            border: 'white',
+                            borderRadius: '2px',
+                            textDecoration: 'none',
+                            fontWeight: 'bolder'
+                        }}
+                        onClick={handleOnClick}
                     >Home</Link>
-                <div  className="col">
-                    <Link to='/login'
-                    style={{
-                        color: 'white',
-                        backgroundColor: 'gray',
-                        borderRadius: '2px'
-                    }}>Se Connecter</Link>
+                    <div className="">
+                        <Link to='/login'
+                            style={{
+                                color: 'greenyellow',
+                                borderRadius: '2px',
+                                textDecoration: 'none',
+                                fontWeight: 'bolder'
+                            }}>Se Connecter</Link>
 
-                </div>
-                
+                    </div>
+
                 </div>
             </div>
         </nav>
