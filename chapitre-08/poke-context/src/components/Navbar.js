@@ -8,7 +8,7 @@ function Navbar() {
     const loginUser = localStorage.getItem("loginUser")
 
 
-    const handleOnClick = () => {
+    const handleHome = () => {
 
         setLogin(localStorage.getItem("loginStatus"))
         if (login === true) {
@@ -19,18 +19,24 @@ function Navbar() {
         }
     }
 
+    const handleSeConnecter = () => {
+        localStorage.setItem("loginStatus", "")
+        localStorage.setItem("loginUser", "")
+    }
+
     return (
         <nav className="navbar card bg-dark">
             <h2 style={{
                 color: 'white',
                 borderRadius: '2px'
             }}>Poke-dex</h2>
-            {/* <p style={{
+            <p style={{
                 color: 'white',
-                borderRadius: '2px'
+                borderRadius: '2px',
+                fontSize: 'small'
             }}>
-                User Name: {loginUser}
-            </p> */}
+                {/* User Name: {loginUser} */}
+            </p>
 
             <div className="links row">
                 <div className="col">
@@ -42,8 +48,9 @@ function Navbar() {
                             textDecoration: 'none',
                             fontWeight: 'bolder'
                         }}
-                        onClick={handleOnClick}
+                        onClick={handleHome}
                     >Home</Link>
+
                     <div className="">
                         <Link to='/login'
                             style={{
@@ -51,7 +58,9 @@ function Navbar() {
                                 borderRadius: '2px',
                                 textDecoration: 'none',
                                 fontWeight: 'bolder'
-                            }}>Se Connecter</Link>
+                            }}
+                            onClick={handleSeConnecter}
+                            >Se Connecter</Link>
 
                     </div>
 

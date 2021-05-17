@@ -1,9 +1,9 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Home from './Home'
-
+import { UserContext } from '../App'
 
 
 function Login() {
@@ -12,9 +12,13 @@ function Login() {
     const [pwd, setPwd] = useState('');
     const { register, errors, handleSubmit } = useForm();
     const history = useHistory();
-    const [login, setLogin] = useState(false)
+
+    const user = useContext(UserContext);
 
     localStorage.setItem("loginStatus", false);
+    
+    // const [login, setLogin] = useState(false)
+    console.log("user", user)
 
     const onSubmit = (data, e) => {
 
@@ -37,9 +41,9 @@ function Login() {
         }
         if (userDetails.username === userDetails.pwd) {
             console.log("login Success")
+            
             localStorage.setItem("loginStatus", true)
             localStorage.setItem("loginUser", username)
-
             history.push("/home")
         } else {
             console.log("Username or Password wrong")
@@ -89,7 +93,6 @@ function Login() {
                 </div>
 
             </form>
-
 
         </div>
     )

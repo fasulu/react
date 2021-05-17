@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Login from './Login';
+import { UserContext } from '../App'
 
 function Home() {
 
@@ -9,8 +10,12 @@ function Home() {
     const [height, setHeight] = useState('')
     const [weight, setWeight] = useState('')
     const [type, setType] = useState('')
+
+    const [user, setUser] = useContext(UserContext);
+
     // const [login, setLogin] = useState(localStorage.getItem("loginStatus"))
 
+    console.log("usercontext user value in home", user)
 
     useEffect(() => {
 
