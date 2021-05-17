@@ -1,27 +1,21 @@
 import { React, useState } from 'react'
 import { BrowserRouter as Router, Route, Link, useHistory } from 'react-router-dom';
-import Login from './Login';
-
 
 function Navbar() {
 
     const history = useHistory();
-    const [login, setLogin] = useState('false')
+    const [login, setLogin] = useState('false');
 
+    const handleOnClick = () => {
 
-    // const handleOnClick = () => {
-    //     console.log("you must sign in")
-    //     // history.push("/login");
-    //     return (
-    //         <div>
-    //             <Router>
-    //                 <Route exact path="/login">
-    //                     <Login />
-    //                 </Route>
-    //             </Router>
-    //         </div>
-    //     )
-    // }
+        setLogin(localStorage.getItem("loginStatus"))
+        if (login === true) {
+            history.push('/home')
+        }else{
+            console.log("you must sign in")
+            history.push('/login')
+        }
+    }
 
     return (
         <nav className="navbar card bg-light">
@@ -35,7 +29,7 @@ function Navbar() {
                         backgroundColor: 'gray',
                         borderRadius: '2px'
                     }}
-                    // onClick={handleOnClick}>Home</Link>
+                    onClick={handleOnClick}
                     >Home</Link>
                 <div  className="col">
                     <Link to='/login'
