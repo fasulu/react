@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Card  from './Card'
+import Card from './Card'
+import { getPopularMovies } from '../Api'
 
 class Popular extends Component {
 
@@ -8,13 +9,14 @@ class Popular extends Component {
     }
 
     componentDidMount() {
-        const url = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=e441f8a3a151d588a4932d2c5d310769"
+        // const url = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=e441f8a3a151d588a4932d2c5d310769"
 
-        fetch(url)
-            .then(response => response.json())
+        // fetch(url)
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         console.log("data in popular component did mount", data);
+        getPopularMovies()
             .then(data => {
-                console.log("data in popular component did mount", data);
-
                 this.setState({
                     movies: data.results
                 })

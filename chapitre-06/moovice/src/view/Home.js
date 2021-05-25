@@ -7,23 +7,33 @@ class Home extends Component {
         super(props)
 
         this.state = {
-
-
+            movies:[]
         }
     }
 
+
     showSelection() {
+        console.log("Im in show movie list")
 
-        console.log("Iam in component did mount")
+        fetch("http://localhost:3001/movies")
+            .then(response => response.json())
+            .then(data => {
 
+                // console.log("data movies in componentDidMount", data);
 
+                this.setState({
+                    movies: data.results
+                })
+            })
+        console.log("Iam in component did mount", this.state.movies)
     }
 
 
     render() {
 
+        this.showSelection()
         console.log(this.props)
-        console.log(this.state)
+        console.log(this.state.movies)
 
         return (
             <div>

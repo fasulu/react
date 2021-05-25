@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Card from './Card'
-import moment from 'moment';
-// import * as moment from 'moment'
+import { getLatesMovies } from '../Api'
+// import moment from 'moment';
 
 class Weekly extends Component {
 
@@ -13,22 +13,22 @@ class Weekly extends Component {
     
     componentDidMount() {
 
-        const lastWeek = moment().subtract(6, 'days').format('DD/MM/YYYY'); console.log("one week back",lastWeek)
-        const toDay = moment().format('DD/MM/YYYY'); console.log("today",toDay)
+        // const lastWeek = moment().subtract(1, 'week').format('YYYY-MM-DD'); console.log("one week back",lastWeek)
+        // const toDay = moment().format('YYYY-MM-DD'); console.log("today",toDay)
 
-        const url = `http://api.themoviedb.org/3/discover/movie?primary_release_date.gte=${lastWeek}&primary_release_date.lte=$${toDay}&api_key=e441f8a3a151d588a4932d2c5d310769`
+        // const url = `http://api.themoviedb.org/3/discover/movie?primary_release_date.gte=${lastWeek}&primary_release_date.lte=${toDay}&api_key=e441f8a3a151d588a4932d2c5d310769`
 
-        console.log(url);
+        // console.log(url);
 
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                console.log("data in popular component did mount", data);
+        // fetch(url)
+        //     .then(response => response.json())
 
-                this.setState({
-                    movies: data.results
-                })
+        getLatesMovies()
+        .then(data => {
+            this.setState({
+                movies: data.results
             })
+        })
     }
 
     render() {

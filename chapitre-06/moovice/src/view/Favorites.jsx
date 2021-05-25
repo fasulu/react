@@ -1,5 +1,6 @@
 import { Component } from 'react'
 import Card from './Card'
+import { getMovieAPI } from '../Api'
 
 class Favorites extends Component {
     constructor(props) {
@@ -11,11 +12,37 @@ class Favorites extends Component {
             favIDs: []
         }
     }
+
+    // getStorage() {
+    //     return JSON.parse(localStorage.getItem("favorites")) || []
+    // }
+
+    // getMovie(id) {
+        
+    //     getMovieAPI(id)
+    //         .then(data => {
+
+    //             const newMovies = [...this.state.movies, data]
+
+    //             this.setState({
+    //                 movies: newMovies
+    //             })
+
+    //         })
+
+    // }
+
+    // componentDidMount() {
+    //     this.state.favIds.map(elem => this.getMovie(elem))
+    // }
+
+
+
     // const movieLink = "https://api.themoviedb.org/3/discover/"
     // const apiKey = "?sort_by=popularity.desc&api_key=e441f8a3a151d588a4932d2c5d310769"
 
     componentDidMount() {
-        const idsFavorites = JSON.parse(localStorage.getItem("favorites"))
+        const idsFavorites = JSON.parse(localStorage.getItem("favorites")) || []
 
         console.log(idsFavorites.length > 0 ? true : false)
 

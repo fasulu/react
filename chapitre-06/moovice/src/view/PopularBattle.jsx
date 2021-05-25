@@ -24,7 +24,7 @@ class PopularBattle extends Component {
     updateIndexMovieBattle = (movieId) => {
         console.log("updateIndexMovieBattle", typeof movieId);
 
-        const idsFavorites = JSON.parse(localStorage.getItem("favorites")) || []
+        const idsFavorites = JSON.parse(localStorage.getItem("favorites")) || []  // check is it empty,if it isnot change the localstorage data in json data using json parse
 
         console.log("idsFavorites", idsFavorites);
 
